@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT HQ DL</title>
+  <style>
+    /* Grundlegende Variablen */
+    :root {
+      --bg-dark: #1A1A1D;
+      --bg-panel: #2D2D32;
+      --accent-1: #10A37F;
+      --accent-2: #6E6E80;
+      --text-primary: #ECECF1;
+      --text-secondary: #A1A1B3;
+      --gradient-chatgpt: linear-gradient(135deg, #10A37F 0%, #1A7F64 100%);
+    }
+
+    /* Basis-Styling */
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 1rem;
+    }
+
+    /* Container mit abgerundeten Ecken */
+    #container {
+      min-width: 120px;
+      background: var(--bg-panel);
+      border: none;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Checkboxes vertikal anordnen */
+    .option {
+      margin-bottom: 8px;
+    }
+
+    #status-msg {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    #download-btn {
+      margin-top: 15px;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--gradient-chatgpt);
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    #download-btn:hover:not(.disabled) {
+      opacity: 0.9;
+    }
+
+    #download-btn.disabled {
+      background: #6E6E80; /* Graue Farbe */
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>YT HQ DL</h2>
+    <div>
+      <div class="option"><label><input type="checkbox" id="download-mp4" checked> Video</label></div>
+      <div class="option"><label><input type="checkbox" id="download-wav" checked> Audio</label></div>
+      <div class="option"><label><input type="checkbox" id="download-transcript" checked> Transkript</label></div>
+      <div class="option"><label><input type="checkbox" id="download-image" checked> Thumbnail</label></div>
+    </div>
+    <button id="download-btn">start Download</button>
+    <div id="status-msg"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

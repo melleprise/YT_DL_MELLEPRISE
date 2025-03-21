@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI YouTube Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🎬 AI YouTube Processor</h1>
+        <div id="status" class="connecting">🔌 Verbindung zum Server...</div>
+        <button id="cancel-btn" style="display: none;">Abbrechen</button>
+    </header>
+
+    <main>
+        <section class="progress-container">
+            <div class="processing-group">
+                <h2>📊 Gesamtfortschritt</h2>
+                <div id="overall-status">
+                    <div class="progress-bar">
+                        <div id="overall-progress" class="progress"></div>
+                    </div>
+                    <span id="progress-text" class="status-text">0%</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📋 Aktive Aufträge</h2>
+            <div id="queue" class="log-container">
+                <div class="empty">⏳ Keine aktiven Aufträge</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📂 Verarbeitete Dateien</h2>
+            <div id="log" class="log-container"></div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

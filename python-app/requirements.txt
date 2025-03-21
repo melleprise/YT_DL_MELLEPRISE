@@ -1,0 +1,5 @@
+Flask
+Flask-SocketIO
+flask-cors
+yt-dlp
+youtube_transcript_api
