@@ -1,17 +1,4 @@
 services:
-  # nginx:
-  #   build:
-  #     context: .
-  #     dockerfile: ./nginx/Dockerfile
-  #   container_name: nginx
-  #   ports:
-  #     - "8080:80"
-  #   depends_on:
-  #     - python
-  #   volumes:
-  #     - ./nginx/nginx.conf:/mnt/nginx.conf
-  #     - ./nginx/websites:/usr/share/nginx/html
-
   python:
     build:
       context: ./python-app
@@ -31,7 +18,3 @@ services:
       - YDL_OUTPUT_TEMPLATE=/downloads/%(title)s.%(ext)s
       - PYTHONPYCACHEPREFIX=/__pycache__
     restart: always
-
-networks:
-  default:
-    driver: bridge

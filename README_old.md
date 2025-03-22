@@ -81,3 +81,7 @@ yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc1]+bestaudio[ext=m4a]/best" --merge-out
 
 
 
+yt-dlp -F "https://www.youtube.com/shorts/NBAyZRp-SG0"
+
+yt-dlp -f "bestvideo+bestaudio/best" "https://www.youtube.com/shorts/NBAyZRp-SG0"
+
