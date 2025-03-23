@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const activeTab = tabs[0];
       if (activeTab && activeTab.url) {
-        const options = JSON.parse(localStorage.getItem('downloadOptions'));
+        const options = JSON.parse(localStorage.getItem('downloadOptions') || '{"mp4":false,"wav":false,"transcript":false,"thumbnail":false}');
 
         if (!options.mp4 && !options.wav && !options.transcript && !options.thumbnail) {
           statusMsg.textContent = "Bitte wähle mindestens eine Download-Option aus.";
