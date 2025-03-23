@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const imageCheckbox = document.getElementById('download-image');
   const statusMsg = document.getElementById('status-msg');
 
+  // Initialisiere Standardoptionen (alle true), falls noch nicht gesetzt
+  if (!localStorage.getItem('downloadOptions')) {
+    const defaultOptions = {
+      mp4: true,
+      wav: true,
+      transcript: true,
+      thumbnail: true
+    };
+    localStorage.setItem('downloadOptions', JSON.stringify(defaultOptions));
+  }
+
   function saveOptions() {
     const options = {
       mp4: mp4Checkbox.checked,
@@ -37,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const activeTab = tabs[0];
       if (activeTab && activeTab.url) {
-        const options = JSON.parse(localStorage.getItem('downloadOptions') || '{"mp4":false,"wav":false,"transcript":false,"thumbnail":false}');
+        const options = JSON.parse(localStorage.getItem('downloadOptions'));
 
         if (!options.mp4 && !options.wav && !options.transcript && !options.thumbnail) {
           statusMsg.textContent = "Bitte wähle mindestens eine Download-Option aus.";
